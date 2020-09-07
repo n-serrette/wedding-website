@@ -1,0 +1,252 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cassandre &amp; Nicolas</title>
+    <meta name="description" content="Cassandre and Nicolas wedding website">
+
+    <link href="https://fonts.googleapis.com/css?family=Alice|Zilla+Slab:400,700" rel="stylesheet">
+    <link rel="stylesheet" href={% static "css/styles-merged.css" %}>
+    <link rel="stylesheet" href={% static "css/style.css" %}>
+	<link rel="stylesheet" href={% static "css/wedding-detail.css" %}>
+	<link rel="stylesheet" href={% static "css/font-icon.css" %}>
+	<link rel="stylesheet" href={% static "css/vendor/nanogallery2.min.css"%}>
+
+    <!--[if lt IE 9]>
+      <script src="js/vendor/html5shiv.min.js"></script>
+      <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <!-- Fixed navbar -->
+     <!-- navbar-fixed-top -->
+    <nav class="navbar navbar-default probootstrap-navbar">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url "index" %}" >Cassandre <em>&amp;</em> Nicolas</a>
+        </div>
+
+        <div id="navbar-collapse" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="#" data-nav-section="home">Home</a></li>
+            <li><a href="#" data-nav-section="groom-bride">Groom &amp; Bride</a></li>
+			<li><a href="#" data-nav-section="rsvp">RSVP</a></li>
+            <li><a href="#" data-nav-section="when-where">When &amp; Where</a></li>
+            <li><a href="#" data-nav-section="gallery">Gallery</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="flexslider" data-section="home">
+      <div class="container text-intro-wrap">
+        <div class="row">
+          <div class="col-md-12 text-center text-intro probootstrap-animate">
+            <h1>Cassandre <em>&amp;</em> Nicolas</h1>
+            <h2>Getting Married on May 22, 2021</h2>
+          </div>
+        </div>
+      </div>
+      <ul class="slides">
+        <li style="background-image: url({% static "img/hero_bg_1.jpg" %})" data></li>
+        <li style="background-image: url({% static "img/hero_bg_2.jpg" %})"></li>
+        <li style="background-image: url({% static "img/hero_bg_3.jpg" %})"></li>
+      </ul>
+    </section>
+
+    <section class="probootstrap-section probootstrap-section-colored probootstrap-wedding-countdown">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center probootstrap-animate"><h4>The Wedding Begins In</h4></div>
+          <div class="col-md-12 probootstrap-animate">
+            <div class="date-countdown"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="probootstrap-section probootstrap-bg" data-section="groom-bride">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 probootstrap-groom-bride">
+
+            <div class="probootstrap-groom probootstrap-animate">
+              <figure>
+                <img src={% static "img/groom_1.jpg" %}  class="img-responsive">
+              </figure>
+              <span class="probootstrap-caption">The Groom</span>
+              <h2 class="text-center">Jake Wilson</h2>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth question ran over her cheek, then she continued her way.</p>
+            </div>
+
+            <div class="probootstrap-divider probootstrap-animate"><span>&amp;</span></div>
+
+            <div class="probootstrap-bride probootstrap-animate">
+              <figure>
+                <img src={% static "img/bride_1.jpg" %}  class="img-responsive">
+              </figure>
+              <span class="probootstrap-caption">The Bride</span>
+              <h2 class="text-center">Kate Marie</h2>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+    <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+	<section class="probootstrap-section probootstrap-section-colored" data-section="rsvp">
+      <div class="container">
+        <div class="row mb40">
+          <div class="col-md-12 text-center">
+            <h2 class="mt0 mb10 probootstrap-animate">Will you attend?</h2>
+            <p>Please sign your RSVP</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="probootstrap-card probootstrap-animate">
+              <form class="probootstrap-form" action="" method="post">
+				  {% csrf_token %}
+                <div class="form-group">
+				  {{form.rsvp_code.errors}}
+                  <label for="{{ form.rsvp_code.id_for_label }}">Votre numéro d'invitation </label>
+                  {{ form.rsvp_code }}
+                </div>
+                <div class="form-group">
+                  <input type="submit" class="btn btn-primary btn-lg" value="Aller a votre invitation">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+	<section class="probootstrap-section w-details-area center-text">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-1"></div>
+				<div class="col-sm-10">
+
+					<div class="row mb40 text-center">
+			          <div class="col-md-12 probootstrap-animate"><h2 class="mt0">When &amp; Where</h2></div>
+			        </div>
+
+					<div class="wedding-details margin-bottom">
+
+						<div class="w-detail right">
+							<i class="icon icon-ciurclke"></i>
+							<h4 class="title">Ceremonie Civil</h4>
+							<p>Look at the most passionate ceremony ever. We wish happiness to the wedding couple.</p>
+						</div><!-- w-detail -->
+
+						<div class="w-detail left">
+							<i class="icon icon-wine-glass"></i>
+							<h4 class="title">Ceremonie Laiqe</h4>
+							<p>Look at the most passionate ceremony ever. We wish happiness to the wedding couple.</p>
+						</div><!-- w-detail -->
+
+						<div class="w-detail right">
+							<i class="icon icon-cake"></i>
+							<h4 class="title">Vin d'honneur</h4>
+							<p>Look at the most passionate ceremony ever. We wish happiness to the wedding couple.</p>
+						</div><!-- w-detail -->
+
+						<div class="w-detail left">
+							<i class="icon icon-camera"></i>
+							<h4 class="title">Repas</h4>
+							<p>Look at the most passionate ceremony ever. We wish happiness to the wedding couple.</p>
+						</div><!-- w-detail -->
+
+						<div class="w-detail right">
+							<i class="icon icon-cake"></i>
+							<h4 class="title">Soirée</h4>
+							<p>Look at the most passionate ceremony ever. We wish happiness to the wedding couple.</p>
+						</div><!-- w-detail -->
+
+					</div><!-- wedding-details -->
+
+				</div><!-- col-sm-10 -->
+			</div><!-- row -->
+		</div><!-- container -->
+	</section><!-- section -->
+
+    <div class="probootstrap-section" data-section="when-where">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-6 probootstrap-animate">
+            <p><img src={% static "img/img_2.jpg" %}  class="img-responsive img-rounded"></p>
+            <h3>Wedding Ceremony</h3>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+
+          </div>
+          <div class="col-md-6 probootstrap-animate">
+            <p><img src={% static "img/alleray.jpg"%}  class="img-responsive img-rounded"></p>
+            <h3>Seigneurie d'Alleray</h3>
+            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth question ran over her cheek, then she continued her way.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+ <section class="probootstrap-section" data-section="gallery">
+      <div class="container">
+        <div class="row mb40 probootstrap-animate">
+          <div class="col-md-12 text-center"><h2>Gallery</h2></div>
+        </div>
+
+		<div id="my_nanogallery2" data-nanogallery2='{
+			"thumbnailWidth":   "auto",
+			"thumbnailHeight":  200,
+        	"thumbnailLabel": {
+          		"position": "overImageOnBottom",
+          		"display": false
+        	},
+			"thumbnailHoverEffect2": "imageBlurOff|labelSlideUp|imageScale150",
+        	"thumbnailAlignment": "center",
+        	"thumbnailOpenImage": true
+      }'>
+      		<a href={% static "img/alleray.jpg"%} data-ngthumb={% static "img/alleray.jpg"%}>title 1</a>
+			<a href={% static "img/img_2.jpg" %} data-ngthumb={% static "img/img_2.jpg" %} >title 1</a>
+			<a href={% static "img/img_3.jpg" %} data-ngthumb={% static "img/img_3.jpg" %} >title 1</a>
+			<a href={% static "img/img_1.jpg" %} data-ngthumb={% static "img/img_1.jpg" %} >title 1</a>
+			<a href={% static "img/img_4.jpg" %} data-ngthumb={% static "img/img_4.jpg" %} >title 1</a>
+			<a href={% static "img/img_5.jpg" %} data-ngthumb={% static "img/img_5.jpg" %} >title 1</a>
+			<a href={% static "img/alleray.jpg"%} data-ngthumb={% static "img/alleray.jpg"%}>title 1</a>
+			<a href={% static "img/img_2.jpg" %} data-ngthumb={% static "img/img_2.jpg" %} >title 1</a>
+			<a href={% static "img/img_3.jpg" %} data-ngthumb={% static "img/img_3.jpg" %} >title 1</a>
+			<a href={% static "img/img_1.jpg" %} data-ngthumb={% static "img/img_1.jpg" %} >title 1</a>
+			<a href={% static "img/img_4.jpg" %} data-ngthumb={% static "img/img_4.jpg" %} >title 1</a>
+			<a href={% static "img/img_5.jpg" %} data-ngthumb={% static "img/img_5.jpg" %} >title 1</a>
+		</div>
+      </div>
+    </section>
+
+    <footer class="probootstrap-footer">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-md-12">
+            &copy; 2017 <a href="https://uicookies.com/">uiCookies:Wedding</a>. All Rights Reserved. Designed &amp; Developed by <a href="https://uicookies.com">uicookies.com</a> <br> Demo Images by <a href="https://unsplash.com">Unsplash</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src={% static "js/scripts.min.js"%}></script>
+    <script src={% static "js/custom.min.js"%}></script>
+    <script type="text/javascript" src={% static "js/vendor/jquery.nanogallery2.min.js"%}></script>
+  </body>
+</html>

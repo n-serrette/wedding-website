@@ -1,0 +1,57 @@
+@media only screen and (max-width: 767px) {
+
+
+	/* ---------------------------------
+	7. WEDDING DETAILS AREA
+	--------------------------------- */
+
+	.wedding-details{ margin-left: 15px; overflow: visible; }
+
+	.wedding-details:after{ left: 0; margin-left: 0px; }
+
+	.w-detail{ width: 100%; padding: 0 0 0 30px; margin: 0 0 30px; }
+
+	.w-detail.left,
+	.w-detail.right{ text-align: left; float: none; }
+
+	.w-detail.right:after,
+	.w-detail.left:after{ left: 0; margin-left: -9px; }
+
+}
+
+
+.icon{ font-size: 1.1em; display: inline-block; line-height: inherit; }
+
+[class^="icon-"]:before, [class*=" icon-"]:before{ line-height: inherit; }
+
+
+
+/* ---------------------------------
+7. WEDDING DETAILS AREA
+--------------------------------- */
+
+.wedding-details{ overflow: hidden; position: relative; }
+
+.wedding-details:after{ content:''; position: absolute; top: 0; bottom: 0; left: 50%; margin-left: -.5px;
+	width: 1px; background: #ccc; }
+
+.w-detail{ width: 50%; padding: 0 50px; margin-bottom: 30px; position: relative; clear: both; margin-top: -40px; }
+
+.w-detail:first-child{ margin-top: 0; }
+
+.w-detail:last-child{ margin-bottom: 0; }
+
+.w-detail:after{ content:''; position: absolute; top: 0; height: 18px; width: 18px; border-radius: 20px;
+	z-index: 1; border: 1px solid #aaa; background: #fff; }
+
+.w-detail.right{ text-align: left;  float: right; }
+
+.w-detail.right:after{ left: 0; margin-left: -9px; }
+
+.w-detail.left{ text-align: right;  float: left; }
+
+.w-detail.left:after{ right: 0; margin-right: -9px; }
+
+.w-detail .title{ margin: 10px 0; }
+
+.w-detail .icon{ font-size: 3.5em; line-height: 1; color: #4d602a; }
