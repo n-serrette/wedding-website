@@ -217,20 +217,14 @@
         	},
 			"thumbnailHoverEffect2": "imageBlurOff|labelSlideUp|imageScale150",
         	"thumbnailAlignment": "center",
-        	"thumbnailOpenImage": true
+        	"thumbnailOpenImage": true,
+			"thumbnailBorderHorizontal": 0,
+			"thumbnailBorderVertical": 0
       }'>
-      		<a href={% static "img/alleray.jpg"%} data-ngthumb={% static "img/alleray.jpg"%}>title 1</a>
-			<a href={% static "img/img_2.jpg" %} data-ngthumb={% static "img/img_2.jpg" %} >title 1</a>
-			<a href={% static "img/img_3.jpg" %} data-ngthumb={% static "img/img_3.jpg" %} >title 1</a>
-			<a href={% static "img/img_1.jpg" %} data-ngthumb={% static "img/img_1.jpg" %} >title 1</a>
-			<a href={% static "img/img_4.jpg" %} data-ngthumb={% static "img/img_4.jpg" %} >title 1</a>
-			<a href={% static "img/img_5.jpg" %} data-ngthumb={% static "img/img_5.jpg" %} >title 1</a>
-			<a href={% static "img/alleray.jpg"%} data-ngthumb={% static "img/alleray.jpg"%}>title 1</a>
-			<a href={% static "img/img_2.jpg" %} data-ngthumb={% static "img/img_2.jpg" %} >title 1</a>
-			<a href={% static "img/img_3.jpg" %} data-ngthumb={% static "img/img_3.jpg" %} >title 1</a>
-			<a href={% static "img/img_1.jpg" %} data-ngthumb={% static "img/img_1.jpg" %} >title 1</a>
-			<a href={% static "img/img_4.jpg" %} data-ngthumb={% static "img/img_4.jpg" %} >title 1</a>
-			<a href={% static "img/img_5.jpg" %} data-ngthumb={% static "img/img_5.jpg" %} >title 1</a>
+	  {% for image in gallery_images %}
+	  <p>YIKLO1</p>
+	  <a href={{ image.0 }} data-ngthumb={{ image.1 }}>{{ image.2 }}</a>
+	  {% endfor %}
 		</div>
       </div>
     </section>
