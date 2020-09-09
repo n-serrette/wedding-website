@@ -13,7 +13,8 @@ class IndexView(FormView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        thumbnail_folder = os.path.join(settings.STATIC_ROOT, "gallery/thumbnail")
+        thumbnail_folder = os.path.join(settings.STATIC_ROOT,
+                                        "gallery/thumbnail")
         images = os.listdir(
             os.path.join(settings.STATIC_ROOT, "gallery/images"))
 

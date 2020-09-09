@@ -2,13 +2,13 @@ from django.views.generic.edit import UpdateView
 from django.urls import reverse
 
 from guest.models import Party
-from guest.forms import GuestFormset
+from guest.forms import GuestFormset, PartyRsvp
 
 
 class InvitationResponse(UpdateView):
     model = Party
-    fields = ['comment']
-    template_name = "form.html"
+    form_class = PartyRsvp
+    template_name = "rsvp.html"
 
     def get_success_url(self):
         return reverse("index")

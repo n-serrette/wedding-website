@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cassandre &amp; Nicolas</title>
+    <meta name="description" content="Cassandre and Nicolas wedding website">
+
+    <link href="https://fonts.googleapis.com/css?family=Alice|Zilla+Slab:400,700" rel="stylesheet">
+    <link rel="stylesheet" href={% static "css/styles-merged.css" %}>
+    <link rel="stylesheet" href={% static "css/style.css" %}>
+
+    <!--[if lt IE 9]>
+      <script src="js/vendor/html5shiv.min.js"></script>
+      <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+	  <!-- Fixed navbar -->
+	   <!-- navbar-fixed-top -->
+	  <nav class="navbar navbar-default probootstrap-navbar">
+		<div class="container">
+		  <div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" aria-controls="navbar">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="{% url "index" %}" >Cassandre <em>&amp;</em> Nicolas</a>
+		  </div>
+
+		  <div id="navbar-collapse" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+          </div>
+		</div>
+	  </nav>
+
+	  <section class="probootstrap-section probootstrap-section-colored">
+		<div class="container">
+
+		</div>
+	  </section>
+
+
+  	<section class="probootstrap-section probootstrap-section" data-section="rsvp">
+		  <div class="container">
+			<div class="row mb40">
+			  <div class="col-md-12 text-center">
+				<h2 class="mt0 mb10 probootstrap-animate">Will you attend?</h2>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-md-8 col-md-offset-2">
+				<div class="probootstrap-card probootstrap-animate">
+				  <form class="probootstrap-form" action="" method="post">
+					{% csrf_token %}
+					<div>
+					{{ guest_formset.management_form }}
+					{% for form_it in guest_formset %}
+					<fieldset class="form-inline">
+						<div class="row">
+
+						<div class="col-md-3">
+
+						<div class="form-group">
+							{{form_it.instance.first_name}} {{form_it.instance.last_name}} :
+						</div>
+						</div>
+						<div class="col">
+
+						{% for field in form_it.visible_fields %}
+						<div class="form-group" style="margin-right:15px">
+							{{field.errors}}
+							{{field.label_tag}}
+							{{field}}
+						</div>
+						{% endfor %}
+						{% for field in form_it.hidden_fields %}
+							{{field}}
+						{% endfor %}
+					</div>
+					</div>
+					</fieldset>
+				  {% endfor %}
+				  </div>
+				  <fieldset>
+				  {% for field in form %}
+				  <div class="form-group">
+				  	{{field.errors}}
+				  	{{field.label_tag}}
+					<br>
+                    {{field}}
+				  </div>
+				  {% endfor %}
+			  	</fieldset>
+                <br>
+                <fieldset>
+					<div class="form-group">
+					  <input type="submit" class="btn btn-primary btn-lg" value="Aller a votre invitation">
+					</div>
+                </fieldset>
+				  </form>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</section>
+
+		<footer class="probootstrap-footer">
+		  <div class="container text-center">
+			<div class="row">
+			  <div class="col-md-12">
+				&copy; 2017 <a href="https://uicookies.com/">uiCookies:Wedding</a>. All Rights Reserved. Designed &amp; Developed by <a href="https://uicookies.com">uicookies.com</a> <br> Demo Images by <a href="https://unsplash.com">Unsplash</a>
+			  </div>
+			</div>
+		  </div>
+		</footer>
+
+		<script src={% static "js/scripts.min.js"%}></script>
+		<script src={% static "js/custom.min.js"%}></script>
+  </body>
+</html>
