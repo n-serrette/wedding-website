@@ -60,13 +60,13 @@
 					<div>
 					{{ guest_formset.management_form }}
 					{% for form_it in guest_formset %}
-					<fieldset class="form-inline">
+					<fieldset class="form-inline" style="margin-bottom:15px">
 						<div class="row">
 
 						<div class="col-md-3">
 
 						<div class="form-group">
-							{{form_it.instance.first_name}} {{form_it.instance.last_name}} :
+							{{form_it.instance.first_name}} {{form_it.instance.last_name}}
 						</div>
 						</div>
 						<div class="col">
@@ -84,6 +84,7 @@
 					</div>
 					</div>
 					</fieldset>
+                    <hr/>
 				  {% endfor %}
 				  </div>
 				  <fieldset>

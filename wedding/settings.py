@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'guest.apps.GuestConfig',
+    'gate.apps.GateConfig',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+GATE_URL = '/gate/'
+GATE_SESSION_FIELD = 'gate_key'

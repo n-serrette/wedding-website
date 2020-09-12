@@ -27,3 +27,11 @@ GuestFormset = forms.models.inlineformset_factory(Party, Guest, GuestRsvp,
 
 class RsvpCodeForm(forms.Form):
     rsvp_code = forms.CharField(required=True, max_length=6)
+
+    def clean(self):
+        cleaned_data = super().clean()
+        code = cleaned_data['rsvp_code']
+        party = Party.objects.get_or_none(invitation_number=code)
+        if party is None:
+            self.add_error('rsvp_code', "Numéro d'invitation introuvable")
+        return self.cleaned_data
