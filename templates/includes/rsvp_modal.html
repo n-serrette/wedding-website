@@ -1,0 +1,64 @@
+<div class="modal fade" id="rsvpModal" tabindex="-1" role="dialog" aria-labelledby="rsvpModal">
+  <div class="modal-dialog modal-lg" role="document">
+	<div class="modal-content">
+	  <div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+	  </div>
+	  <form class="probootstrap-form" action="" method="post">
+
+	  <div class="modal-body">
+		  {% csrf_token %}
+		  <div>
+		  {{ guest_formset.management_form }}
+		  {% for form_it in guest_formset %}
+		  <fieldset class="form-inline" style="margin-bottom:15px">
+			  <div class="row">
+
+			  <div class="col-md-3">
+
+			  <div class="form-group">
+				  {{form_it.instance.first_name}} {{form_it.instance.last_name}}
+			  </div>
+			  </div>
+			  <div class="col">
+
+			  {% for field in form_it.visible_fields %}
+			  <div class="form-group" style="margin-right:15px">
+				  {{field.errors}}
+				  {{field.label_tag}}
+				  {{field}}
+			  </div>
+			  {% endfor %}
+			  {% for field in form_it.hidden_fields %}
+				  {{field}}
+			  {% endfor %}
+		  </div>
+		  </div>
+		  </fieldset>
+		  <hr/>
+		{% endfor %}
+		</div>
+		<fieldset>
+		{% for field in form %}
+		<div class="form-group">
+		  {{field.errors}}
+		  {{field.label_tag}}
+		  <br>
+		  {{field}}
+		</div>
+		{% endfor %}
+		</fieldset>
+		</div>
+		<fieldset>
+
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			<input type="submit" class="btn btn-primary" value="Répondre"></input>
+		  </div>
+		</fieldset>
+
+	</form>
+  </div>
+</div>
+</div>

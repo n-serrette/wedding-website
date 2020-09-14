@@ -24,3 +24,7 @@ def redirect_to_gate(next, gate_url=None, redirect_field_name=REDIRECT_FIELD_NAM
 
 def set_key(request, key):
     request.session[settings.GATE_SESSION_FIELD] = key
+
+
+def get_key(request):
+    return request.session[settings.GATE_SESSION_FIELD]
