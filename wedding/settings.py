@@ -140,5 +140,7 @@ MESSAGE_TAGS = {
     messages.ERROR: 'alert-danger',
 }
 
+LOGIN_URL = '/gate/'
+
 GATE_URL = '/gate/'
 GATE_SESSION_FIELD = 'gate_key'

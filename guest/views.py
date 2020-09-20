@@ -3,12 +3,13 @@ import datetime
 
 from django.conf import settings
 from django.views.generic.edit import UpdateView, FormView
+from django.views.generic import TemplateView
 from django.urls import reverse
 from django.templatetags.static import static
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-
-from guest.models import Party
+from guest.models import Party, Guest
 from guest.forms import GuestFormset, PartyRsvp, RsvpCodeForm
 
 from gate.views import get_key, set_key
@@ -90,3 +91,13 @@ class GateView(FormView):
 
     def get_success_url(self):
         return reverse('index')
+
+
+class DashboardView(LoginRequiredMixin, TemplateView):
+    template_name = "dashboard.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['guest'] = Guest.objects.all()
+        context['party'] = Party.objects.all()
+        return context

@@ -1,0 +1,14 @@
+<table class="table table-striped">
+    <thead>
+        <th>Groupe</th>
+        <th>#membres</th>
+    </thead>
+    <tbody>
+        {% for party in party_list%}
+        <tr>
+            <td>{{ party.name }}</td>
+            <td>{{ party.guest_set.all.count}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

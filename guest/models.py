@@ -1,6 +1,6 @@
 from django.db import models
 
-from guest.managers import GetOrNoneManager
+from guest.managers import PartyManager, GuestManager
 
 
 class Party(models.Model):
@@ -16,10 +16,29 @@ class Party(models.Model):
     invited_dinner = models.BooleanField(default=True)
     invited_brunch = models.BooleanField(default=False)
 
-    objects = GetOrNoneManager()
+    objects = PartyManager()
 
     def __str__(self):
         return self.name
+
+    def has_responded(self):
+        return self.response_received is not None
+
+    @property
+    def any_guests_attending(self):
+        return not self.guest_set.attending().empty()
+
+    @property
+    def attending_brunch_count(self):
+        return self.guest_set.attending_brunch().count()
+
+    @property
+    def attending_dinner_count(self):
+        return self.guest_set.attending_dinner().count()
+
+    @property
+    def attending_cocktail_count(self):
+        return self.guest_set.attending_cocktail().count()
 
 
 class Guest(models.Model):
@@ -31,3 +50,5 @@ class Guest(models.Model):
     attending_cocktail = models.BooleanField(default=False)
     attending_dinner = models.BooleanField(default=False)
     attending_brunch = models.BooleanField(default=False)
+
+    objects = GuestManager()

@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cassandre &amp; Nicolas</title>
+    <meta name="description" content="Cassandre and Nicolas wedding website">
+
+    <link href="https://fonts.googleapis.com/css?family=Alice|Zilla+Slab:400,700" rel="stylesheet">
+    <link rel="stylesheet" href={% static "css/styles-merged.css" %}>
+    <link rel="stylesheet" href={% static "css/style.css" %}>
+
+    <!--[if lt IE 9]>
+      <script src="js/vendor/html5shiv.min.js"></script>
+      <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    {% include 'includes/messages.html' %}
+    <section class="container">
+        <h1>Dashboard</h1>
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <td>Present/ Absent / Invités</td>
+                    <td>{{guest.attending.count}} ({{guest.attending.child.count}}) / {{guest.not_attending.count}} ({{guest.not_attending.child.count}}) / {{guest.count}} ({{guest.child.count}})</td>
+                </tr>
+                <tr>
+                    <td>Invitation ouverte sans reponse</td>
+                    <td>{{party.opened.unanswered.count}}</td>
+                </tr>
+                <tr>
+                    <td>Invitations non ouvertes</td>
+                    <td>{{party.unopened.count}}</td>
+                </tr>
+                <tr>
+                    <td>Present au cocktail (enfants)</td>
+                    <td>{{guest.attending_cocktail.count}} ({{guest.attending_cocktail.child.count}})</td>
+                </tr>
+                <tr>
+                    <td>Present au dinner (enfants)</td>
+                    <td>{{guest.attending_dinner.count}} ({{guest.attending_dinner.child.count}})</td>
+                </tr>
+                <tr>
+                    <td>Present au brunch (enfants)</td>
+                    <td>{{guest.attending_brunch.count}} ({{guest.attending_brunch.child.count}})</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3>Invitations non ouverte</h3>
+                {% include 'includes/party_list.html' with party_list=party.unopened %}
+            </div>
+            <div class="col-lg-6">
+                <h3>Invitation ouverte sans reponse</h3>
+                {% include 'includes/party_list.html' with party_list=party.opened.unanswered %}
+            </div>
+        </div>
+    </section>
+
+	<script src={% static "js/scripts.min.js"%}></script>
+    <script src={% static "js/custom.min.js"%}></script>
+
+  </body>
+</html>
