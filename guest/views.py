@@ -16,6 +16,25 @@ from gate.views import get_key, set_key
 from gate.mixin import GateLockMixin
 
 
+def get_gallery_images_tuple():
+    thumbnail_folder = os.path.join(settings.STATIC_ROOT,
+                                    "gallery/thumbnail")
+    images = os.listdir(
+        os.path.join(settings.STATIC_ROOT, "gallery/images"))
+
+    image_list = []
+    for img in images:
+        name = os.path.basename(img)
+        thumbnail = os.path.join(thumbnail_folder, name)
+        thumbnail_ulr = static("".join(["gallery/thumbnail/", name]))
+        image_url = static("".join(["gallery/images/", name]))
+        if os.path.exists(thumbnail):
+            image_list.append((image_url, thumbnail_ulr, name))
+        else:
+            image_list.append((image_url, image_url, name))
+    return image_list
+
+
 class InvitationResponse(GateLockMixin, UpdateView):
     model = Party
     form_class = PartyRsvp
@@ -37,23 +56,8 @@ class InvitationResponse(GateLockMixin, UpdateView):
             context['guest_formset'].full_clean()
         else:
             context['guest_formset'] = GuestFormset(instance=self.object)
-
-        thumbnail_folder = os.path.join(settings.STATIC_ROOT,
-                                        "gallery/thumbnail")
-        images = os.listdir(
-            os.path.join(settings.STATIC_ROOT, "gallery/images"))
-
-        image_list = []
-        for img in images:
-            name = os.path.basename(img)
-            thumbnail = os.path.join(thumbnail_folder, name)
-            thumbnail_ulr = static("".join(["gallery/thumbnail/", name]))
-            image_url = static("".join(["gallery/images/", name]))
-            if os.path.exists(thumbnail):
-                image_list.append((image_url, thumbnail_ulr, name))
-            else:
-                image_list.append((image_url, image_url, name))
-        context['gallery_images'] = image_list
+            self.get_message()
+        context['gallery_images'] = get_gallery_images_tuple()
         return context
 
     def form_valid(self, form):
@@ -66,7 +70,6 @@ class InvitationResponse(GateLockMixin, UpdateView):
                 form.instance.save()
             formset.instance = self.object
             formset.save()
-            messages.success(self.request, 'Votre réponse a bien été enregistré')
             return response
         else:
             return super().form_invalid(form)
@@ -74,6 +77,12 @@ class InvitationResponse(GateLockMixin, UpdateView):
     def lock_test_func(self, key):
         obj = Party.objects.get_or_none(invitation_number=key)
         return obj is not None
+
+    def get_message(self):
+        if self.object.response_received:
+            messages.success(self.request, 'Votre réponse a été enregistré')
+        else:
+            messages.error(self.request, 'Vous n\'avez toujours pas répondu')
 
 
 class GateView(FormView):

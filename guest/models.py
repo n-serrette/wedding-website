@@ -13,7 +13,6 @@ class Party(models.Model):
     response_received = models.DateTimeField(null=True,
                                              blank=True, default=None)
     comment = models.TextField(default="", blank=True)
-    invited_dinner = models.BooleanField(default=True)
     invited_brunch = models.BooleanField(default=False)
 
     objects = PartyManager()

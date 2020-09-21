@@ -3,7 +3,7 @@
 	<div class="modal-content">
 	  <div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+		<h4 class="modal-title" id="myModalLabel">Réponse</h4>
 	  </div>
 	  <form class="probootstrap-form" action="" method="post">
 
@@ -11,33 +11,43 @@
 		  {% csrf_token %}
 		  <div>
 		  {{ guest_formset.management_form }}
-		  {% for form_it in guest_formset %}
-		  <fieldset class="form-inline" style="margin-bottom:15px">
-			  <div class="row">
 
-			  <div class="col-md-3">
+          <table class="table table-striped">
+              <thead>
+                  <th>present au :</th>
+                  <th>cocktail</th>
+                  <th>dinner</th>
+                  {% if form.instance.invited_brunch %}
+                  <th>brunch</th>
+                  {% endif%}
+              </thead>
+              <tbody>
+                  {% for form_it in guest_formset %}
+                  <tr>
+                      <td>{{form_it.instance.first_name}} {{form_it.instance.last_name}}</td>
 
-			  <div class="form-group">
-				  {{form_it.instance.first_name}} {{form_it.instance.last_name}}
-			  </div>
-			  </div>
-			  <div class="col">
+                      <td>
+                          {{ form_it.attending_cocktail.error }}
+                          {{ form_it.attending_cocktail }}
+                      </td>
+                      <td>
+                          {{ form_it.attending_dinner.error }}
+                          {{ form_it.attending_dinner }}
+                      </td>
+                      {% if form.instance.invited_brunch %}
+                      <td>
+                          {{ form_it.attending_brunch.error }}
+                          {{ form_it.attending_brunch }}
+                      </td>
+                      {% endif %}
+                      {% for field in form_it.hidden_fields %}
+        				  {{field}}
+        			  {% endfor %}
+                  </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
 
-			  {% for field in form_it.visible_fields %}
-			  <div class="form-group" style="margin-right:15px">
-				  {{field.errors}}
-				  {{field.label_tag}}
-				  {{field}}
-			  </div>
-			  {% endfor %}
-			  {% for field in form_it.hidden_fields %}
-				  {{field}}
-			  {% endfor %}
-		  </div>
-		  </div>
-		  </fieldset>
-		  <hr/>
-		{% endfor %}
 		</div>
 		<fieldset>
 		{% for field in form %}

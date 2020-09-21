@@ -5,35 +5,31 @@
 	7. WEDDING DETAILS AREA
 	--------------------------------- */
 
-	.wedding-details{ margin-left: 15px; overflow: visible; }
+	.wedding-details, .wedding-details-dotted{ margin-left: 15px; overflow: visible; }
 
-	.wedding-details:after{ left: 0; margin-left: 0px; }
+	.wedding-details-dotted:after, .wedding-details:after{ left: 0; margin-left: 0px; }
 
 	.w-detail{ width: 100%; padding: 0 0 0 30px; margin: 0 0 30px; }
 
 	.w-detail.left,
 	.w-detail.right{ text-align: left; float: none; }
 
-	.w-detail.right:after,
-	.w-detail.left:after{ left: 0; margin-left: -9px; }
+	.w-detail.right:after { left: 0; margin-left: -9px; }
+	.w-detail.left:after{ right: 0; margin-right: -9px; }
 
 }
-
-
-.icon{ font-size: 1.1em; display: inline-block; line-height: inherit; }
-
-[class^="icon-"]:before, [class*=" icon-"]:before{ line-height: inherit; }
-
 
 
 /* ---------------------------------
 7. WEDDING DETAILS AREA
 --------------------------------- */
 
-.wedding-details{ overflow: hidden; position: relative; }
+.wedding-details, .wedding-details-dotted{ overflow: hidden; position: relative; }
 
-.wedding-details:after{ content:''; position: absolute; top: 0; bottom: 0; left: 50%; margin-left: -.5px;
-	width: 1px; background: #ccc; }
+.wedding-details:after, .wedding-details-dotted:after{ content:''; position: absolute; top: 0; bottom: 0; left: 50%; margin-left: -.5px;
+	width: 1px; background: #ccc;}
+
+.wedding-details-dotted:after{ margin-left: -4px; border-left: 8px dotted; background: none;}
 
 .w-detail{ width: 50%; padding: 0 50px; margin-bottom: 30px; position: relative; clear: both; margin-top: -40px; }
 
