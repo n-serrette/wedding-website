@@ -26,7 +26,7 @@ def generateOverlay(password):
     packet = io.BytesIO()
     can = canvas.Canvas(packet, pagesize=landscape(A4))
     can.setFont("Helvetica", 15)
-    can.drawCentredString(687, 42, str(password))
+    can.drawCentredString(687, 120, str(password))
     can.save()
     packet.seek(0)
     return PdfFileReader(packet)
