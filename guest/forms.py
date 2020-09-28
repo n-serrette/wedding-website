@@ -31,7 +31,7 @@ class RsvpCodeForm(forms.Form):
     def clean(self):
         cleaned_data = super().clean()
         code = cleaned_data['rsvp_code']
-        party = Party.objects.get_or_none(invitation_number=code)
+        party = Party.objects.get_or_none(invitation_number__iexact=code)
         if party is None:
             self.add_error('rsvp_code', "Numéro d'invitation introuvable")
         return self.cleaned_data

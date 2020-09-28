@@ -45,7 +45,7 @@ class InvitationResponse(GateLockMixin, UpdateView):
 
     def get_object(self, queryset=None):
         obj = self.model.objects.get(
-            invitation_number=get_key(self.request))
+            invitation_number__iexact=get_key(self.request))
         return obj
 
     def get_context_data(self, **kwargs):
@@ -75,7 +75,7 @@ class InvitationResponse(GateLockMixin, UpdateView):
             return super().form_invalid(form)
 
     def lock_test_func(self, key):
-        obj = Party.objects.get_or_none(invitation_number=key)
+        obj = Party.objects.get_or_none(invitation_number__iexact=key)
         return obj is not None
 
     def get_message(self):
@@ -92,7 +92,7 @@ class GateView(FormView):
     def form_valid(self, form):
         self.code = form.cleaned_data['rsvp_code']
         set_key(self.request, self.code)
-        party = Party.objects.get(invitation_number=self.code)
+        party = Party.objects.get(invitation_number__iexact=self.code)
         if party.invitation_opened is None:
             party.invitation_opened = datetime.datetime.now()
             party.save()
