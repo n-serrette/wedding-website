@@ -29,7 +29,7 @@
 .wedding-details:after, .wedding-details-dotted:after{ content:''; position: absolute; top: 0; bottom: 0; left: 50%; margin-left: -.5px;
 	width: 1px; background: #ccc;}
 
-.wedding-details-dotted:after{ margin-left: -4px; border-left: 8px dotted; background: none;}
+.wedding-details-dotted:after{ margin-left: -3px; border-left: 5px dotted; background: none;}
 
 .w-detail{ width: 50%; padding: 0 50px; margin-bottom: 30px; position: relative; clear: both; margin-top: -40px; }
 
@@ -48,6 +48,6 @@
 
 .w-detail.left:after{ right: 0; margin-right: -9px; }
 
-.w-detail .title{ margin: 10px 0; color: #ffffff;}
+.w-detail .title{ margin: 10px 0; color: #445626;}
 
 .w-detail .icon{ font-size: 3.5em; line-height: 1; color: #4d602a; }
