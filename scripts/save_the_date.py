@@ -4,6 +4,7 @@ import uuid
 from PyPDF2 import PdfFileWriter, PdfFileReader
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4, landscape
+from reportlab.pdfbase.pdfmetrics import stringWidth
 
 
 def readExcludePassword(file_path):
@@ -25,8 +26,14 @@ def genPassword(count, excluded=set()):
 def generateOverlay(password):
     packet = io.BytesIO()
     can = canvas.Canvas(packet, pagesize=landscape(A4))
-    can.setFont("Helvetica", 15)
-    can.drawCentredString(687, 120, str(password))
+    text = can.beginText()
+    password = password.upper()
+    width = stringWidth(str(password), "Helvetica", 15)
+    text.setTextOrigin(687 - (width / 2), 127)
+    text.setFont("Helvetica", 15)
+    text.setCharSpace(1.5)
+    text.textLine(str(password))
+    can.drawText(text)
     can.save()
     packet.seek(0)
     return PdfFileReader(packet)
@@ -56,7 +63,7 @@ with open(args.input, "rb") as file:
     for password in passSet:
         overlay = generateOverlay(password)
         source_pdf = PdfFileReader(file)
-        page = source_pdf.getPage(3)
+        page = source_pdf.getPage(0)
         page.mergePage(overlay.getPage(0))
         output.addPage(page)
 
