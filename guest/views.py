@@ -25,6 +25,8 @@ def get_gallery_images_tuple():
     image_list = []
     for img in images:
         name = os.path.basename(img)
+        if name == '.gitignore':
+            continue
         thumbnail = os.path.join(thumbnail_folder, name)
         thumbnail_ulr = static("".join(["gallery/thumbnail/", name]))
         image_url = static("".join(["gallery/images/", name]))

@@ -91,9 +91,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-SESSION_COOKIE_NAME = '__Secure-sessionid'
-CSRF_COOKIE_NAME = '__Secure-csrftoken'
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
