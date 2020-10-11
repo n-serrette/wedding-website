@@ -39,11 +39,11 @@
 
         <div id="navbar-collapse" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="#" data-nav-section="home">Home</a></li>
-            <li><a href="#" data-nav-section="groom-bride">Groom &amp; Bride</a></li>
-            <li><a href="#" data-nav-section="when-where">When &amp; Where</a></li>
-            <li><a href="#" data-nav-section="gallery">Gallery</a></li>
-            <li><a href="#rsvpModal" class="external" data-toggle="modal" data-target="#rsvpModal">RSVP</a></li>
+            <li class="active"><a href="#" data-nav-section="home">Accueil</a></li>
+            <li><a href="#" data-nav-section="groom-bride">Les mariés</a></li>
+            <li><a href="#" data-nav-section="when-where">Programme</a></li>
+            <li><a href="#" data-nav-section="gallery">Galerie photo</a></li>
+            <li><a href="#rsvpModal" class="external" data-toggle="modal" data-target="#rsvpModal">Votre réponse</a></li>
           </ul>
         </div>
       </div>
@@ -54,7 +54,7 @@
         <div class="row">
           <div class="col-md-12 text-center text-intro probootstrap-animate">
             <h1>Cassandre <em>&amp;</em> Nicolas</h1>
-            <h2>Getting Married on May 22, 2021</h2>
+            <h2>Se marient le 22 Mai 2021</h2>
           </div>
         </div>
       </div>
@@ -68,7 +68,7 @@
     <section class="probootstrap-section probootstrap-section-colored probootstrap-wedding-countdown">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 text-center probootstrap-animate"><h4>The Wedding Begins In</h4></div>
+          <div class="col-md-12 text-center probootstrap-animate"><h4>Nous nous disons oui dans :</h4></div>
           <div class="col-md-12 probootstrap-animate">
             <div class="date-countdown"></div>
           </div>
@@ -85,10 +85,8 @@
               <figure>
                 <img src={% static "img/groom_1.jpg" %}  class="img-responsive">
               </figure>
-              <span class="probootstrap-caption">The Groom</span>
-              <h2 class="text-center">Jake Wilson</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth question ran over her cheek, then she continued her way.</p>
+              <span class="probootstrap-caption">Le marié</span>
+              <h2 class="text-center">Nicolas Serrette</h2>
             </div>
 
             <div class="probootstrap-divider probootstrap-animate"><span>&amp;</span></div>
@@ -97,10 +95,8 @@
                 <figure>
                   <img src={% static "img/bride_1.jpg" %}  class="img-responsive">
                 </figure>
-                <span class="probootstrap-caption">The Bride</span>
-                <h2 class="text-center">Kate Marie</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
+                <span class="probootstrap-caption">La mariée</span>
+                <h2 class="text-center">Cassandre Nunes</h2>
             </div>
 
           </div>
@@ -115,33 +111,34 @@
 				<div class="col-sm-10">
 
 					<div class="row mb40 text-center">
-			          <div class="col-md-12 probootstrap-animate"><h2 class="mt0">When &amp; Where</h2></div>
+			          <div class="col-md-12 probootstrap-animate"><h2 class="mt0">Programme</h2></div>
 			        </div>
 
 					<div class="wedding-details ">
 
 						<div class="w-detail right">
 							<img src={% static "icons/bride-groom.svg"%} class="icon" height="100">
-							<h4 class="title">15h Ceremonie Civil</h4>
-							<p>Look at the most passionate ceremony ever. We wish happiness to the wedding couple.</p>
+							<h4 class="title">15h Cérémonie Civile</h4>
+							<p>Rejoignez-nous à la Mairie de Vendôme pour notre premier « Oui » de la journée.</p>
 						</div><!-- w-detail -->
 
 						<div class="w-detail left">
 							<img src={% static "icons/flowers.svg"%} class="icon" height="100">
-							<h4 class="title">16h Ceremonie Laique</h4>
-							<p>Look at the most passionate ceremony ever. We wish happiness to the wedding couple.</p>
+							<h4 class="title">16h Cérémonie Laïque</h4>
+                            <p>Seigneurie d’Alleray</p>
+							<p>Nos témoins vous accueillent au coeur de la clairière afin d’échanger nos voeux.</p>
 						</div><!-- w-detail -->
 
 						<div class="w-detail right">
 							<img src={% static "icons/glass.svg"%} class="icon" height="100">
-							<h4 class="title">18h Vin d'honneur</h4>
-							<p>Look at the most passionate ceremony ever. We wish happiness to the wedding couple.</p>
+							<h4 class="title">18h Vin d’honneur</h4>
+							<p>Célébrons notre bonheur, un verre à la main !</p>
 						</div><!-- w-detail -->
 
 						<div class="w-detail left">
                             <img src={% static "icons/cake.svg"%} class="icon" height="100">
 							<h4 class="title">20h Repas</h4>
-							<p>Look at the most passionate ceremony ever. We wish happiness to the wedding couple.</p>
+							<p>Asseyons-nous ensemble et partageons notre premier repas de jeunes mariés.</p>
 						</div><!-- w-detail -->
                     {% if form.instance.invited_brunch %}
                     </div><!-- wedding-details -->
@@ -150,7 +147,7 @@
 						<div class="w-detail right">
 							<img src={% static "icons/gramophone.svg"%} class="icon" height="100">
 							<h4 class="title">23h Soirée</h4>
-							<p>Look at the most passionate ceremony ever. We wish happiness to the wedding couple.</p>
+							<p>Jouons, discutons, rions jusqu’au bout de la nuit sur un air de jazz.</p>
 						</div><!-- w-detail -->
                     </div><!-- wedding-details -->
 
@@ -159,7 +156,7 @@
                         <div class="w-detail left">
 							<img src={% static "icons/table-set.svg"%} class="icon" height="100">
 							<h4 class="title">Brunch</h4>
-							<p>Look at the most passionate ceremony ever. We wish happiness to the wedding couple.</p>
+							<p>Nous vous retrouvons le lendemain midi, pour un barbecue en toute tranquillité.</p>
 						</div><!-- w-detail -->
                     </div><!-- wedding-details -->
                     {% endif%}
@@ -174,15 +171,17 @@
 
         <div class="row">
           <div class="col-md-6 probootstrap-animate">
-            <p><img src={% static "img/img_2.jpg" %}  class="img-responsive img-rounded"></p>
-            <h3>Wedding Ceremony</h3>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+            <p><img src={% static "img/vendome.jpg" %}  class="img-responsive img-rounded"></p>
+            <h3>Mairie de Vendôme</h3>
+            <p>Parc Ronsard, 41100 Vendome</p>
+            <p>D’un pont à l’autre, d’une passerelle à l’autre, le centre-ville historique de Vendôme est baigné par les bras du Loir et parsemé d’espaces verts. Si votre venue vous le permet, nous vous invitons fortement à visiter le parc Ronsard, la porte fortifiée Saint-Georges ou encore l’Abbaye de la trinité dont l’architecture gothique est éblouissante.</p>
 
           </div>
           <div class="col-md-6 probootstrap-animate">
             <p><img src={% static "img/alleray.jpg"%}  class="img-responsive img-rounded"></p>
             <h3>Seigneurie d'Alleray</h3>
-            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth question ran over her cheek, then she continued her way.</p>
+            <p>171 Alleray, 41170 Choue</p>
+            <p>Entouré par un bosquet de feuillus, le manoir d’Alleray s’élève sur le plateau entre Mondoubleau et St Agil. Il est l’oeuvre de la famille de Vendômois, qui entre en possession du fief dans la première moitié du XVème siècle. Longtemps demeurée à l’état d’exploitation agricole, la demeure est progressivement remise en état par ses propriétaires Audrey et Thomas.</p>
           </div>
         </div>
       </div>
@@ -196,21 +195,29 @@
           </div>
 
         <div class="row">
-          <div class="col-md-3 probootstrap-animate text-center">
+          <div class="col-md-4 probootstrap-animate text-center">
+              <p><b>Comment s’habiller ?</b></p>
               <hr/>
-            <p>1</p>
+            <p>Dress code champêtre - Longues robes bohèmes, costumes décontractés, noeuds papillons, bretelles et imprimés fleuris sont les bienvenus.</p>
           </div>
-          <div class="col-md-3 probootstrap-animate text-center">
+          <div class="col-md-4 probootstrap-animate text-center">
+              <p><b>Où dormir ?</b></p>
               <hr/>
-            <p>2</p>
+            <p>Vous trouverez <a href="#">ici</a> une petite sélection de gîtes et chambres d'hôtes où vous installer le temps des festivités</p>
           </div>
-          <div class="col-md-3 probootstrap-animate text-center">
+          <div class="col-md-4 probootstrap-animate text-center">
+              <p><b>Que faire ?</b></p>
               <hr/>
-            <p>3</p>
-          </div>
-          <div class="col-md-3 probootstrap-animate text-center">
-              <hr/>
-            <p>4</p>
+              <a href="https://www.vendome-tourisme.fr/">vendome-tourisme.fr</a>
+            <p>Nos visites préférées :
+            <br>
+            Village troglodyte de Trôo
+            <br>
+            Ville de Montoire
+            <br>
+            Commanderie d’Arville
+            <br>
+            Abbaye de la Trinité</p>
           </div>
         </div>
       </div>
@@ -220,10 +227,13 @@
       <div class="container">
 
           <div class="row mb40 text-center">
-            <div class="col-md-12 probootstrap-animate"><h2 class="mt0">Gift</h2></div>
+            <div class="col-md-12 probootstrap-animate"><h2 class="mt0">Cadeaux</h2></div>
           </div>
 
         <div class="row text-center">
+            <p>Nous possédons tout ce dont nous rêvons dans notre nid.</p>
+            <p>En revanche, si vous souhaitez participer à notre voyage de noces ou à nos futurs projets, nous mettons à votre disposition une cagnotte en ligne ainsi qu’une urne le jour J.</p>
+            <p>Votre présence à nos côtés est déjà le plus beau des cadeaux.</p>
             <a href="#" class="btn btn-primary btn-lg">Cagnotte</a>
         </div>
       </div>
@@ -232,7 +242,7 @@
     <section class="probootstrap-section" data-section="gallery">
       <div class="container">
         <div class="row mb40 probootstrap-animate">
-          <div class="col-md-12 text-center"><h2>Gallery</h2></div>
+          <div class="col-md-12 text-center"><h2>Gallerie</h2></div>
         </div>
 
 		<div id="my_nanogallery2" data-nanogallery2='{
@@ -270,9 +280,5 @@
     <script src={% static "js/scripts.min.js"%}></script>
     <script src={% static "js/vendor/jquery.nanogallery2.min.js"%}></script>
     <script src={% static "js/custom.js"%}></script>
-
-    <script type="text/javascript">
-
-    </script>
   </body>
 </html>
