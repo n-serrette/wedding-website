@@ -59,9 +59,9 @@
         </div>
       </div>
       <ul class="slides">
-        <li style="background-image: url({% static "img/hero_bg_1.jpg" %})" data></li>
-        <li style="background-image: url({% static "img/hero_bg_2.jpg" %})"></li>
-        <li style="background-image: url({% static "img/hero_bg_3.jpg" %})"></li>
+          {% for img in slider_images%}
+          <li style="background-image: url({% static img %})" {% if forloop.first %}data{% endif%}></li>
+          {% endfor %}
       </ul>
     </section>
 
@@ -196,24 +196,22 @@
 
         <div class="row">
           <div class="col-md-4 probootstrap-animate text-center">
-              <p><b>Comment s’habiller ?</b></p>
+              <span><b>Comment s’habiller ?</b></span>
               <hr/>
             <p>Dress code champêtre - Longues robes bohèmes, costumes décontractés, noeuds papillons, bretelles et imprimés fleuris sont les bienvenus.</p>
           </div>
           <div class="col-md-4 probootstrap-animate text-center">
-              <p><b>Où dormir ?</b></p>
+              <span><b>Où dormir ?</b></span>
               <hr/>
             <p>Vous trouverez <a href="#">ici</a> une petite sélection de gîtes et chambres d'hôtes où vous installer le temps des festivités</p>
           </div>
           <div class="col-md-4 probootstrap-animate text-center">
-              <p><b>Que faire ?</b></p>
+              <span><b>Que faire ?</b></span>
               <hr/>
               <a href="https://www.vendome-tourisme.fr/">vendome-tourisme.fr</a>
             <p>Nos visites préférées :
             <br>
             Village troglodyte de Trôo
-            <br>
-            Ville de Montoire
             <br>
             Commanderie d’Arville
             <br>

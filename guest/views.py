@@ -37,6 +37,20 @@ def get_gallery_images_tuple():
     return image_list
 
 
+def get_hero_slider_images_list():
+    slider_folder = os.path.join(settings.STATIC_ROOT,
+                                 "slider")
+    images = os.listdir(slider_folder)
+
+    image_list = []
+    for img in images:
+        name = os.path.basename(img)
+        if name == '.gitignore':
+            continue
+        image_list.append("/".join(["slider", name]))
+    return image_list
+
+
 class InvitationResponse(GateLockMixin, UpdateView):
     model = Party
     form_class = PartyRsvp
@@ -60,6 +74,7 @@ class InvitationResponse(GateLockMixin, UpdateView):
             context['guest_formset'] = GuestFormset(instance=self.object)
             self.get_message()
         context['gallery_images'] = get_gallery_images_tuple()
+        context['slider_images'] = get_hero_slider_images_list()
         return context
 
     def form_valid(self, form):
@@ -102,6 +117,11 @@ class GateView(FormView):
 
     def get_success_url(self):
         return reverse('index')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['slider_images'] = get_hero_slider_images_list()
+        return context
 
 
 class DashboardView(LoginRequiredMixin, TemplateView):

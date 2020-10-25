@@ -46,6 +46,7 @@ parser.add_argument("-o", "--output",
                     default="save_the_date_generated.pdf")
 parser.add_argument("-op", "--outpass",
                     default="password.txt")
+parser.add_argument("-n", "--newpass", default="new_password.txt")
 parser.add_argument("-c", "--count", type=int,
                     default=1)
 parser.add_argument("-e", "--exclude")
@@ -69,6 +70,9 @@ with open(args.input, "rb") as file:
 
     with open(args.output, "wb") as outputStream:
         output.write(outputStream)
+
+with open(args.newpass, "w") as passFile:
+    passFile.write("\n".join(passSet))
 
 with open(args.outpass, "w") as passFile:
     passFile.write("\n".join(set.union(passSet, excludedPass)))

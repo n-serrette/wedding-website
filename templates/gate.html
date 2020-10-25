@@ -47,9 +47,9 @@
       </div>
       </div>
       <ul class="slides">
-        <li style="background-image: url({% static "img/hero_bg_1.jpg" %})" data></li>
-        <li style="background-image: url({% static "img/hero_bg_2.jpg" %})"></li>
-        <li style="background-image: url({% static "img/hero_bg_3.jpg" %})"></li>
+          {% for img in slider_images%}
+          <li style="background-image: url({% static img %})" {% if forloop.first %}data{% endif%}></li>
+          {% endfor %}
       </ul>
     </section>
 
