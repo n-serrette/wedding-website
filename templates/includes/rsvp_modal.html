@@ -14,9 +14,9 @@
 
           <table class="table table-striped">
               <thead>
-                  <th>present au :</th>
+                  <th>présent(s) au :</th>
                   <th>cocktail</th>
-                  <th>dinner</th>
+                  <th>diner</th>
                   {% if form.instance.invited_brunch %}
                   <th>brunch</th>
                   {% endif%}
@@ -47,8 +47,9 @@
                   {% endfor %}
               </tbody>
           </table>
-
+          <p style="font-size:smaller;color:red">* Si vous constatez une erreur ou un oubli n'hésitez pas à nous contacter</p>
 		</div>
+
 		<fieldset>
 		{% for field in form %}
 		<div class="form-group">
