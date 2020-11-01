@@ -45,7 +45,7 @@ h1, h2, h3, .text-intro-wrap .text-intro h2, h4 {
   margin: 1.414em 0 0.5em;
   font-weight: 900;
   line-height: 1.2;
-  font-family: "Zilla Slab", serif;
+  font-family: 'Amatic SC', cursive;
   color: #445626;
 }
 
@@ -167,7 +167,7 @@ a:hover, a:focus, a:active {
 .probootstrap-navbar .dropdown-header {
   color: rgba(255, 255, 255, 0.2);
   padding-left: 10px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .probootstrap-navbar .dropdown > a {
@@ -288,8 +288,8 @@ a:hover, a:focus, a:active {
 }
 
 .probootstrap-navbar .navbar-brand {
-  text-transform: uppercase;
-  font-family: "Zilla Slab", serif;
+  /* text-transform: uppercase; */
+  font-family: 'Amatic SC', cursive;
   color: #ffffff;
   font-size: 26px;
   font-weight: 700;
@@ -310,7 +310,7 @@ a:hover, a:focus, a:active {
   color: white;
   font-size: 15px;
   position: relative;
-  text-transform: uppercase;
+  text-transform: uppercase
 }
 
 @media screen and (max-width: 768px) {
@@ -513,7 +513,7 @@ a:hover, a:focus, a:active {
   font-size: 110px;
   line-height: 100px;
   margin: 0;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .text-intro-wrap .text-intro h1 em {
@@ -534,9 +534,10 @@ a:hover, a:focus, a:active {
 }
 
 .probootstrap-wedding-countdown h4 {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 1);
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: 700;
+  font-size: 36px;
   margin-top: 0;
   margin-bottom: 30px;
 }
@@ -565,12 +566,13 @@ a:hover, a:focus, a:active {
 }
 
 .probootstrap-groom-bride .probootstrap-caption {
-  color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.6);
   text-transform: uppercase;
   text-align: center;
   display: block;
   margin-top: 40px;
-  font-family: "Zilla Slab", serif;
+  font-family: 'Amatic SC', cursive;
+  font-size: larger;
   font-weight: 700;
   letter-spacing: .1em;
 }
@@ -995,7 +997,7 @@ a:hover, a:focus, a:active {
 }
 
 .probootstrap-heading .primary-heading {
-  font-family: "Zilla Slab", serif;
+  font-family: 'Amatic SC', cursive;
   color: #445626;
   margin: 0;
   padding: 0;
@@ -1009,7 +1011,7 @@ a:hover, a:focus, a:active {
 }
 
 .probootstrap-heading .secondary-heading {
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: #ffffff;
   margin: 0;
   padding: 0;
@@ -1351,11 +1353,11 @@ a:hover, a:focus, a:active {
 
 .date-countdown > div .simply-word {
   display: block;
-  font-family: "Zilla Slab", serif;
-  text-transform: uppercase;
-  font-size: 16px;
+  font-family: 'Amatic SC', cursive;
+  /* text-transform: uppercase; */
+  font-size: 20px;
   letter-spacing: .2em;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 1);
 }
 
 .mfp-fade.mfp-bg {

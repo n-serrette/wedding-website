@@ -48,6 +48,6 @@
 
 .w-detail.left:after{ right: 0; margin-right: -9px; }
 
-.w-detail .title{ margin: 10px 0; color: #445626;}
+.w-detail .title{ margin: 10px 0; color: #445626; font-weight: bold;}
 
 .w-detail .icon{ font-size: 3.5em; line-height: 1; color: #4d602a; }
