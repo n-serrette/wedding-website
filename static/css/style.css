@@ -1,3 +1,7 @@
+.collapsing {
+    transition: height 0.2s;
+}
+
 /*!==============================
  * Theme Name: Wedding
  * Theme URL: https://probootstrap.com/wedding-free-onepage-html5-template-using-bootstrap

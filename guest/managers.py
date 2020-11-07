@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models import Q
 
 from django.core.exceptions import ObjectDoesNotExist
+import guest.models as mod
 
 
 class GetOrNoneManager(models.Manager):
@@ -24,6 +25,14 @@ class PartyQuerySet(models.QuerySet):
 
     def unanswered(self):
         return self.filter(response_received=None)
+
+    def attending_dinner(self):
+        attending = {x.party.pk for x in mod.Guest.objects.attending_dinner()}
+        return self.filter(pk__in=attending)
+
+    def attending_cocktail(self):
+        attending = {x.party.pk for x in mod.Guest.objects.attending_cocktail()}
+        return self.filter(pk__in=attending)
 
 
 class GuestQuerySet(models.QuerySet):

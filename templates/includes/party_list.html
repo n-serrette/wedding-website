@@ -1,14 +1,46 @@
-<table class="table table-striped">
-    <thead>
-        <th>Groupe</th>
-        <th>#membres</th>
-    </thead>
-    <tbody>
-        {% for party in party_list%}
-        <tr>
-            <td>{{ party.name }}</td>
-            <td>{{ party.guest_set.all.count}}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div class="panel-group" role="tablist" id="{{id}}">
+{% for party in party_list%}
+<div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="header_{{id}}_{{party.name}}">
+        <h2 class="panel-title">
+        <a role="button" type="button" data-toggle="collapse" href="#{{id}}_{{party.name}}" aria-controls="{{id}}_{{party.name}}">
+          {{ party.name }}
+        </a>
+      </h2>
+    </div>
+    <div id="{{id}}_{{party.name}}" class="panel-collapse collapse"  role="tabpanel" aria-labelledby="header_{{party.name}}_{{id}}">
+      <div class="panel-body">
+        <table class="table table-striped">
+            <tbody>
+                {% for guest in party.guest_set.all%}
+                {% if colored and cocktail %}
+                    {% if guest.attending_cocktail %}
+                    <tr class="success">
+                    {% else %}
+                    <tr class="danger">
+                    {% endif %}
+                {% elif colored and dinner %}
+                    {% if guest.attending_dinner %}
+                    <tr class="success">
+                    {% else %}
+                    <tr class="danger">
+                    {% endif %}
+                {% elif colored %}
+                    {% if guest.attending_dinner or guest.attending_cocktail%}
+                    <tr class="success">
+                    {% else %}
+                    <tr class="danger">
+                    {% endif %}
+                {% else %}
+                <tr>
+                {% endif %}
+                    <td >{{ guest.first_name }} {{ guest.last_name }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+{% endfor %}
+</div>
