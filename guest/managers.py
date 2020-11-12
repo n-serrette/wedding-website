@@ -57,8 +57,8 @@ class GuestQuerySet(models.QuerySet):
     def not_attending(self):
         return self.filter(
             Q(attending_cocktail=False)
-            | Q(attending_brunch=False)
-            | Q(attending_dinner=False)).exclude(party__response_received=None)
+            & Q(attending_brunch=False)
+            & Q(attending_dinner=False)).exclude(party__response_received=None)
 
 
 PartyManager = GetOrNoneManager.from_queryset(PartyQuerySet)

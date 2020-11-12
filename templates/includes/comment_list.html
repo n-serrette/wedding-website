@@ -2,14 +2,14 @@
 {% for party in party_list%}
 {% if party.comment %}
 <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="header_{{id}}_{{party.name}}">
+    <div class="panel-heading" role="tab" id="header_{{id}}_{{party.invitation_number}}">
         <h2 class="panel-title">
-        <a role="button" type="button" data-toggle="collapse" href="#{{id}}_{{party.name}}" aria-controls="{{id}}_{{party.name}}">
+        <a role="button" type="button" data-toggle="collapse" href="#{{id}}_{{party.invitation_number}}" aria-controls="{{id}}_{{party.invitation_number}}">
           {{ party.name }}
         </a>
       </h2>
     </div>
-    <div id="{{id}}_{{party.name}}" class="panel-collapse collapse"  role="tabpanel" aria-labelledby="header_{{party.name}}_{{id}}">
+    <div id="{{id}}_{{party.invitation_number}}" class="panel-collapse collapse"  role="tabpanel" aria-labelledby="header_{{party.invitation_number}}}_{{id}}">
       <div class="panel-body">
         {{ party.comment }}
       </div>
