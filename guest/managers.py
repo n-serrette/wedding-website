@@ -34,6 +34,10 @@ class PartyQuerySet(models.QuerySet):
         attending = {x.party.pk for x in mod.Guest.objects.attending_cocktail()}
         return self.filter(pk__in=attending)
 
+    def attending_brunch(self):
+        attending = {x.party.pk for x in mod.Guest.objects.attending_brunch()}
+        return self.filter(pk__in=attending)
+
 
 class GuestQuerySet(models.QuerySet):
     def attending_dinner(self):

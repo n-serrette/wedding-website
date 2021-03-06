@@ -61,24 +61,28 @@
             </div>
             <div class="col-lg-4">
                 <h3>Réponse reçu</h3>
-                {% include 'includes/party_list.html' with party_list=party.opened.answered id='withAnswered' colored=True%}
+                {% include 'includes/party_list.html' with party_list=party.opened.answered|dictsort:'response_received' id='withAnswered' colored=True%}
             </div>
         </div>
     </section>
     <section class="container">
         <h3>Commentaires</h3>
-        {% include 'includes/comment_list.html' with party_list=party id='commnents'%}
+        {% include 'includes/comment_list.html' with party_list=party|dictsort:'response_received' id='commnents'%}
     </section>
 
     <section class="container">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 <h3>Cocktail</h3>
-                {% include 'includes/party_list.html' with party_list=party.attending_cocktail id='cocktail' colored=True cocktail=True %}
+                {% include 'includes/party_list.html' with party_list=party.attending_cocktail|dictsort:'response_received' id='cocktail' colored=True cocktail=True %}
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 <h3>Dinner</h3>
-                {% include 'includes/party_list.html' with party_list=party.attending_dinner id='dinner' colored=True dinner=True %}
+                {% include 'includes/party_list.html' with party_list=party.attending_dinner|dictsort:'response_received' id='dinner' colored=True dinner=True %}
+            </div>
+            <div class="col-lg-4">
+                <h3>Brunch</h3>
+                {% include 'includes/party_list.html' with party_list=party.attending_brunch|dictsort:'response_received' id='brunch' colored=True brunch=True %}
             </div>
         </div>
 

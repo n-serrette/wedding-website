@@ -25,6 +25,12 @@
                     {% else %}
                     <tr class="danger">
                     {% endif %}
+                {% elif colored and brunch %}
+                    {% if guest.attending_brunch %}
+                    <tr class="success">
+                    {% else %}
+                    <tr class="danger">
+                    {% endif %}
                 {% elif colored %}
                     {% if guest.attending_dinner or guest.attending_cocktail%}
                     <tr class="success">
