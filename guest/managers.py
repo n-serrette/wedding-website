@@ -21,22 +21,22 @@ class PartyQuerySet(models.QuerySet):
         return self.filter(invitation_opened=None)
 
     def answered(self):
-        return self.exclude(response_received=None)
+        return self.exclude(response_received=None).order_by('response_received')
 
     def unanswered(self):
         return self.filter(response_received=None)
 
     def attending_dinner(self):
         attending = {x.party.pk for x in mod.Guest.objects.attending_dinner()}
-        return self.filter(pk__in=attending)
+        return self.filter(pk__in=attending).order_by('response_received')
 
     def attending_cocktail(self):
         attending = {x.party.pk for x in mod.Guest.objects.attending_cocktail()}
-        return self.filter(pk__in=attending)
+        return self.filter(pk__in=attending).order_by('response_received')
 
     def attending_brunch(self):
         attending = {x.party.pk for x in mod.Guest.objects.attending_brunch()}
-        return self.filter(pk__in=attending)
+        return self.filter(pk__in=attending).order_by('response_received')
 
 
 class GuestQuerySet(models.QuerySet):

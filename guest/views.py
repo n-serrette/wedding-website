@@ -130,5 +130,5 @@ class DashboardView(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['guest'] = Guest.objects.all()
-        context['party'] = Party.objects.all()
+        context['party'] = Party.objects.all().order_by('response_received')
         return context
