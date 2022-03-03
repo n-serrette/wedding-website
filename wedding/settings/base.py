@@ -25,6 +25,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+	'import_export',
+
     'guest.apps.GuestConfig',
     'gate.apps.GateConfig',
 ]
